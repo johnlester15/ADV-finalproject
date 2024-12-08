@@ -1,0 +1,232 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('img/dogstyle.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+}
+
+/* Theme Colors */
+:root {
+  --theme-color: #7AB730; /* Main theme color for buttons and elements */
+  --theme-dark: #4A7C28; /* Dark green for hover */
+  --theme-light: #A9D573; /* Light green for accents */
+  --background-light: #F8F9FA; /* Light background for forms */
+}
+
+/* Main Container */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1000px;
+  height: 700px;
+  background: #fff;
+  
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.6s ease-in-out; /* Added transition for smooth slide effect */
+}
+
+/* Left Panel (Form) */
+.form-panel {
+  width: 50%;
+  padding: 60px;
+  background-color: var(--background-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.6s ease-in-out; /* Ensure smooth transition */
+}
+
+.form-content {
+  text-align: center;
+  width: 100%;
+}
+
+#form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--theme-dark);
+}
+
+.toggle-text {
+  font-size: 1rem;
+}
+
+.toggle-text a {
+  color: var(--theme-color);
+  text-decoration: none;
+}
+
+.toggle-text a:hover {
+  text-decoration: underline;
+}
+
+/* Right Panel (Logo) */
+.logo-panel {
+  width: 50%;
+  background-image:url(img/login.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+  transition: transform 0.6s ease-in-out; /* Ensure smooth transition */
+}
+
+/* Logo Image */
+.logo-img {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+.logo-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.logo-content p {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+/* Active State */
+.main-container.active .form-panel {
+  transform: translateX(100%);
+}
+
+.main-container.active .logo-panel {
+  transform: translateX(-100%);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: var(--theme-color); /* Make both buttons same color */
+  border-color: var(--theme-color);
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for smooth hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Button Hover Effects */
+.btn-primary:hover {
+  background-color: var(--theme-dark); /* Darker color on hover */
+  border-color: var(--theme-dark);
+  transform: translateY(-3px); /* Add lift effect */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.btn-primary:active {
+  transform: translateY(1px); /* Button slightly pressed on click */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Lighter shadow on click */
+}
+
+/* Input Fields */
+input.form-control {
+  background-color: #fff; /* Keep input fields white */
+  color: #3a3a3a; /* Black text inside inputs */
+  border: 1px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+input.form-control:focus {
+  border-color: var(--theme-color);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .main-container {
+    width: 100%;
+    height: auto;
+    flex-direction: column; /* Stack the panels vertically */
+    transform: none; /* Prevent the container from being shifted in this view */
+    transition: none; /* Disable transition for small screens */
+  }
+
+  .form-panel {
+    width: 100%;
+    padding: 40px;
+    transition: none; /* Disable transition for small screens */
+  }
+
+  .logo-panel {
+    width: 100%;
+    padding: 20px;
+    transition: none; /* Disable transition for small screens */
+  }
+
+  #form-title {
+    font-size: 1.5rem;
+  }
+
+  .logo-title {
+    font-size: 2rem;
+  }
+
+  .logo-content p {
+    font-size: 1rem;
+  }
+
+  .toggle-text {
+    font-size: 0.9rem;
+  }
+
+  /* Fix transition behavior */
+  .main-container.active .form-panel {
+    transform: translateX(0);
+  }
+
+  .main-container.active .logo-panel {
+    transform: none; /* Ensure the logo panel doesn't shift on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-panel {
+    padding: 30px;
+    transition: none; /* Disable transition for small screens */
+  }
+
+  #form-title {
+    font-size: 1.25rem;
+  }
+
+  .logo-title {
+    font-size: 1.8rem;
+  }
+
+  .logo-content p {
+    font-size: 0.9rem;
+  }
+
+  .toggle-text {
+    font-size: 0.8rem;
+  }
+
+  .logo-img {
+    max-width: 120px;
+  }
+
+  /* Fix transition behavior */
+  .main-container.active .form-panel {
+    transform: translateX(0);
+  }
+
+  .main-container.active .logo-panel {
+    transform: none; /* Ensure the logo panel doesn't shift on smaller screens */
+  }
+}
